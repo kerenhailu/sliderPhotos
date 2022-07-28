@@ -6,6 +6,7 @@ import { GetAllSport } from "../../Services/Sport/sport-service";
     let [image, setImage] = useState("");
     let [sportImg, setSportImg] = useState([]);
     let [indexImg, setIndexImg] = useState(0);
+    let loading="https://i.pinimg.com/originals/ac/40/2f/ac402f57b35961d66cfbee27472c65a3.gif";
 
     useEffect(() => {
       GetAllSport().then((res) => {
@@ -32,9 +33,15 @@ console.log(sportImg);
     }, [sportImg]);
   
     return (
-      <div>
+      <>
+      {
+        image===""?
+        <img src={loading} alt="img" />:<div>
       <h1>showing Sport collection</h1>
-        <img className="centerImg" src={image} style={{ width: "100%" }} alt="img" />    
+        <img className="centerImg" src={image} alt="img" />    
       </div>
+      }
+      
+      </>
     );
   }

@@ -5,7 +5,7 @@ import { GetAllFood } from "../../Services/Food/food-service";
     let [image, setImage] = useState("");
     let [foodImg, setFoodImg] = useState([]);
     let [indexImg, setIndexImg] = useState(0);
-
+let loading="https://i.pinimg.com/originals/ac/40/2f/ac402f57b35961d66cfbee27472c65a3.gif";
     useEffect(() => {
       GetAllFood().then((res) => {
         setFoodImg(res.hits);
@@ -31,9 +31,15 @@ console.log(foodImg);
     }, [foodImg]);
   
     return (
-      <div>
+      <>
+      {
+        image===""?
+        <img src={loading} alt="img" />:<div>
       <h1>showing Food collection</h1>
-        <img className="centerImg" src={image} style={{ width: "100%" }} alt="img" />    
+        <img className="centerImg" src={image} alt="img" />    
       </div>
+      }
+      
+      </>
     );
   }
