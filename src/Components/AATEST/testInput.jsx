@@ -1,62 +1,45 @@
 import { useEffect, useState } from "react";
 import { GetAllPhotos } from "../../Services/Photos/photos-service";
 
-  export default function InputCheck() {
-    // let [category, setCategory] = useState(["sport","music","food"]);
-    let [image, setImage] = useState("");
-    let [allImg, setAllImg] = useState([]);
-    let [indexImg, setIndexImg] = useState(0);
-  let [ loading, setLoading ] =useState(false);
-  let [ user, setUser ] =useState();
+export default function InputCheck() {
+  // let [category, setCategory] = useState(["sport","music","food"]);
+  let [image, setImage] = useState("");
+  let [allImg, setAllImg] = useState([]);
+  let [indexImg, setIndexImg] = useState(0);
+  let [loading, setLoading] = useState(false);
+  let [user, setUser] = useState();
 
-    useEffect(() => {
-      GetAllPhotos().then((res) => {
-        setAllImg(res.hits)
+  useEffect(() => {
+    GetAllPhotos().then((res) => {
+      setAllImg(res.hits);
     });
-}, []);
-console.log(allImg);
-    // useEffect(() => {
-    //   const interval = setInterval(() => {
-    //     if (indexImg === allImg.length - 1 ) {
-    //         indexImg=0;
-    //       console.log("image :" ,image);
-    //     } else {
-    //       setImage(allImg[indexImg].largeImageURL);
-    //       indexImg++
-    //       console.log(indexImg);
-    //       console.log("image :" ,image);
-    //     }
-    //   }, 3000);
-
-    //   return () => {
-    //           clearInterval(interval);
-    //   };
-
-    // }, [allImg]);
-
-    function CheckWord(event){
-       setUser(event.target.value) 
-       console.log(event.target.value);
-    }
-    function sameUser(e){
-        allImg.filter (
-            (user) => user.user.toLowerCase().indexOf(e.target.value) > -1
-           );
-           
-
-    }
-    return (
-      <>
-      <div>
-          <input type="text" onChange={CheckWord}/>
-          <button onClick={sameUser}>click</button>
-      <h1>showing All collection</h1>
-        <img className="centerImg" src={image} style={{ width: "100%" }} alt="img" />
-      </div>
-        </>
-
+  }, []);
+  console.log(allImg);
+  function CheckWord(event) {
+    setUser(event.target.value);
+    console.log(event.target.value);
+  }
+  function sameUser(e) {
+    allImg.filter(
+      (user) => user.user.toLowerCase().indexOf(e.target.value) > -1
     );
   }
+  return (
+    <>
+      <div>
+        <input type="text" onChange={CheckWord} />
+        <button onClick={sameUser}>click</button>
+        <h1>showing All collection</h1>
+        <img
+          className="centerImg"
+          src={image}
+          style={{ width: "100%" }}
+          alt="img"
+        />
+      </div>
+    </>
+  );
+}
 
 //   collections: 1
 // comments: 31
