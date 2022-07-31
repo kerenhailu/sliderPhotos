@@ -2,9 +2,11 @@
   text-align: center;
   width: 100vw;
   height: 100vh;
+  background-image: linear-gradient(white, rgb(205, 213, 255),rgb(205, 213, 255));
+
 }
 h1{
-  text-shadow: 2px 2px 2px gray;
+  text-shadow: 2px 2px 2px rgb(161, 174, 238);
 }
 .cardUser img{
   width: 50vw;

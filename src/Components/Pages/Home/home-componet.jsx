@@ -52,11 +52,12 @@ export default function Home() {
         <br />
       </div>
       <div>
-        <h1>Search by user name</h1>
-        <input type="text" onChange={InputUser} placeholder="User Name .." />
+        <h1>Enter a User Name</h1>
         <button onClick={CheckUser} className="buttonInput">
-          click
+        Search
         </button>
+        <input type="text" onChange={InputUser} placeholder="User Name .." />
+        
       </div>
       {showUser.largeImageURL === undefined ? (
         <section className="cardUser">{message}</section>
