@@ -7,7 +7,6 @@ export default function Home() {
   let [userNameReceived, setUserNameReceived] = useState("");
   let [showUser, setShowUser] = useState({});
   let [message, setMessage] = useState("");
-  // let message = "not found";
 
   useEffect(() => {
     GetAllPhotos().then((res) => {
@@ -36,29 +35,21 @@ export default function Home() {
 
   return (
     <div className="Home">
-      <h1>Choose a Category</h1>
       <div className="Categorys">
-        <button>
-          <Link to="/food">Food</Link>
-        </button>
+      <h1>Choose a Category</h1>
+        <Link to="/food"><button>Food</button></Link>
         <br />
-        <button>
-          <Link to="/sport">Sport</Link>
-        </button>
+          <Link to="/sport"><button>Sport</button></Link>
         <br />
-        <button>
-          <Link to="/music">Music</Link>
-        </button>
+        <Link to="/music"><button>Music</button></Link>
         <br />
       </div>
-      <div>
+      <div className="divSearch">
         <h1>Enter a User Name</h1>
-        <button onClick={CheckUser} className="buttonInputSearch" >
+        <input type="text" onChange={InputUser} placeholder="User Name .." />
+        <button onClick={CheckUser} className="buttonInputSearch">
         Search
         </button>
-        <input type="text" onChange={InputUser} placeholder="User Name .." />
-        
-      </div>
       {showUser.largeImageURL === undefined ? (
         <section className="message">{message}</section>
       ) : (
@@ -67,7 +58,7 @@ export default function Home() {
           <img src={showUser.largeImageURL} alt="userImg" />
           <br/>
         </section>
-      )}
+      )}</div>
     </div>
   );
 }
