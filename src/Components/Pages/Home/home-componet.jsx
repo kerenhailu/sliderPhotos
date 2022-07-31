@@ -26,12 +26,10 @@ export default function Home() {
         console.log(showUser);
         console.log(user, ":", userA.user);
       } else {
-        // console.log(message);
         console.log(user, ":", userA.user);
-        <h1>no</h1>
-      } 
+        <h1>no</h1>;
+      }
     });
-   
   }
 
   return (
@@ -41,27 +39,25 @@ export default function Home() {
         <button>
           <Link to="/food">Food</Link>
         </button>
-          <br/>
+        <br />
         <button>
           <Link to="/sport">Sport</Link>
         </button>
-        <br/>
+        <br />
         <button>
           <Link to="/music">Music</Link>
         </button>
-        <br/>
+        <br />
       </div>
       <div>
-          <h1>Search by user name</h1>
-          <input
-            type="text"
-            onChange={InputUser}
-            placeholder="User Name"
-          />
-          <button onClick={CheckUser} className="buttonInput">click</button>
-        </div>
-      {showUser=={}?(
-        <section className="cardUser">a</section>
+        <h1>Search by user name</h1>
+        <input type="text" onChange={InputUser} placeholder="User Name" />
+        <button onClick={CheckUser} className="buttonInput">
+          click
+        </button>
+      </div>
+      {showUser.largeImageURL === undefined ? (
+        <section className="cardUser"></section>
       ) : (
         <section className="cardUser">
           <h3>user:{showUser.user}</h3>
