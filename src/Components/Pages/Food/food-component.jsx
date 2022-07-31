@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { LoadingContext } from "../../Context/Loading/loading-context";
 import { GetAllFood } from "../../Services/Food/food-service";
 
 export default function Food() {
   let [image, setImage] = useState("");
   let [foodImg, setFoodImg] = useState([]);
   let [indexImg, setIndexImg] = useState(0);
-  let loading =
-    "https://i.pinimg.com/originals/ac/40/2f/ac402f57b35961d66cfbee27472c65a3.gif";
+  let { loading } = useContext(LoadingContext);
+
   useEffect(() => {
     GetAllFood().then((res) => {
       setFoodImg(res.hits);
@@ -25,12 +26,10 @@ export default function Food() {
         console.log("image :", image);
       }
     }, 3000);
-
     return () => {
       clearInterval(interval);
     };
   }, [foodImg]);
-
   return (
     <>
       {image === "" ? (
