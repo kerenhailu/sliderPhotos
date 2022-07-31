@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GetAllFood } from "../../Services/Food/food-service";
+import { GetAllFood } from "../../Services/Food/food-service"
   
   export default function Food() {
     let [image, setImage] = useState("");

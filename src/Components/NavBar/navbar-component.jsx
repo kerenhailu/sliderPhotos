@@ -8,7 +8,6 @@ export default function Navbar() {
       <Link to="/music">Music</Link>
       <Link to="/sport">Sport</Link>
       <Link to="/">Home</Link>
-      <input /> <button>click</button>
     </div>
   );
 }
