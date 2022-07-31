@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   let [allImg, setAllImg] = useState([]);
-  let [user, setUser] = useState("");
+  let [userNameReceived, setUserNameReceived] = useState("");
   let [showUser, setShowUser] = useState({});
-  let message = "not found";
+  let [message, setMessage] = useState("");
+  // let message = "not found";
 
   useEffect(() => {
     GetAllPhotos().then((res) => {
@@ -15,19 +16,20 @@ export default function Home() {
   }, []);
 
   function InputUser(event) {
-    setUser(event.target.value);
+    setUserNameReceived(event.target.value);
     console.log(event.target.value);
   }
 
   function CheckUser() {
-    allImg.filter((userA, index) => {
-      if (user == userA.user) {
-        setShowUser(userA);
+    allImg.filter((user) => {
+      if (userNameReceived == user.user) {
+        setShowUser(user);
         console.log(showUser);
-        console.log(user, ":", userA.user);
+        console.log(userNameReceived, ":", user.user);
+        setMessage("")
       } else {
-        console.log(user, ":", userA.user);
-        <h1>no</h1>;
+        setMessage("not found")
+        console.log(userNameReceived, ":", user.user);
       }
     });
   }
@@ -51,17 +53,18 @@ export default function Home() {
       </div>
       <div>
         <h1>Search by user name</h1>
-        <input type="text" onChange={InputUser} placeholder="User Name" />
+        <input type="text" onChange={InputUser} placeholder="User Name .." />
         <button onClick={CheckUser} className="buttonInput">
           click
         </button>
       </div>
       {showUser.largeImageURL === undefined ? (
-        <section className="cardUser"></section>
+        <section className="cardUser">{message}</section>
       ) : (
         <section className="cardUser">
-          <h3>user:{showUser.user}</h3>
+          <h2>{showUser.user}</h2>
           <img src={showUser.largeImageURL} alt="userImg" />
+          <br/>
         </section>
       )}
     </div>
