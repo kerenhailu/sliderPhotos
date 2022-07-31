@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { GetAllPhotos } from "../../Services/Photos/photos-service";
-
-import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -30,39 +28,44 @@ export default function Home() {
       } else {
         // console.log(message);
         console.log(user, ":", userA.user);
-      }
+        <h1>no</h1>
+      } 
     });
+   
   }
 
   return (
     <div className="Home">
       <h1>Choose a Category</h1>
       <div className="Categorys">
-        <div>
-          <input
-            type="text"
-            onChange={InputUser}
-            placeholder="Search By User Name"
-          />
-          <button onClick={CheckUser}>click</button>
-        </div>
-
         <button>
           <Link to="/food">Food</Link>
         </button>
+          <br/>
         <button>
           <Link to="/sport">Sport</Link>
         </button>
+        <br/>
         <button>
           <Link to="/music">Music</Link>
         </button>
+        <br/>
       </div>
-      {showUser === {} ? (
-        <section className="cardUser">""</section>
+      <div>
+          <h1>Search by user name</h1>
+          <input
+            type="text"
+            onChange={InputUser}
+            placeholder="User Name"
+          />
+          <button onClick={CheckUser} className="buttonInput">click</button>
+        </div>
+      {showUser=={}?(
+        <section className="cardUser">a</section>
       ) : (
         <section className="cardUser">
           <h3>user:{showUser.user}</h3>
-          <img src={showUser.previewURL} alt="userImg" />
+          <img src={showUser.largeImageURL} alt="userImg" />
         </section>
       )}
     </div>
