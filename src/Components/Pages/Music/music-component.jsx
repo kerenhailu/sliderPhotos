@@ -13,17 +13,14 @@ export default function Music() {
       setMusicImg(res.hits);
     });
   }, []);
-  console.log(musicImg);
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (indexImg === musicImg.length - 1) {
         indexImg = 0;
-        console.log("image :", image);
       } else {
         setImage(musicImg[indexImg].largeImageURL);
         indexImg++;
-        console.log(indexImg);
-        console.log("image :", image);
       }
     }, 3000);
     return () => {

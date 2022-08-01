@@ -2,77 +2,68 @@
   text-align: center;
   width: 100vw;
   height: 100vh;
-  /* background-image: linear-gradient(white, rgb(205, 213, 255),rgb(205, 213, 255)); */
   background-image: url(https://img.freepik.com/free-vector/shiny-white-gray-background-with-wavy-lines_1017-25101.jpg?w=1380&t=st=1659283160~exp=1659283760~hmac=d36e233f0e4b150707eaa625dd2e8387a1abcaf300e07f152ff5c095f9d0a683);
-   /* background-image: url(https://img.freepik.com/free-vector/white-abstract-background-design_23-2148825582.jpg?w=1060&t=st=1659283721~exp=1659284321~hmac=3dd70685fc220eed6b20383e53a23f9b205502f44490728c31cab728b00b42ca);  */
-  /* background-color: rgb(0, 0, 0); */
-  /* background-color: rgba(204, 198, 198, 0.842); */
   background-repeat: no-repeat;
-  background-size:cover;
-  /* padding-bottom: 10%; */
+  background-size: cover;
 }
-h1{
-  /* color: white; */
+h1 {
   text-shadow: 2px 2px 2px rgb(161, 174, 238);
 }
-.Home{
+.Home {
   width: 100vw;
   display: flex;
-    flex-direction: row;
-    width: 100vw;  
-    /* height: 9vh; */
-    justify-content: space-around;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: space-around;
 }
-.divSearch{
+.divSearch {
   width: 45vw;
-
 }
-.message{
+
+.message {
   color: red;
   font-weight: bold;
 }
-.cardUser img{
+.cardUser img {
   width: 30vw;
   height: 40vh;
   box-shadow: 5px 5px 5px gray;
 }
-.centerImg{
+.centerImg {
   width: 70vw;
   height: 60vh;
   box-shadow: 5px 5px 5px gray;
 }
-.Categorys{
+.Categorys {
   width: 45vw;
 }
-/* .Categorys link{
-  color: white;
-} */
-.Categorys button{
+
+.Categorys button {
   font-weight: bold;
-margin: 1%;
+  margin: 1%;
   width: 20vw;
   height: 7vh;
   font-size: large;
   box-shadow: 2px 2px 2px gray;
   transition: 1s;
 }
-.Categorys button:hover{
+.Categorys button:hover {
   color: rgb(124, 141, 223);
   background-color: white;
   padding: 1%;
 }
-input{
+input {
   width: 14vw;
   height: 4vh;
 }
-.buttonInputSearch{
-margin: 0.5%;
+.buttonInputSearch {
+  margin: 0.5%;
   width: 6vw;
   height: 5vh;
   font-weight: bold;
   transition: 1s;
 }
-.buttonInputSearch:hover{
+.buttonInputSearch:hover {
   color: rgb(124, 141, 223);
   background-color: white;
   padding: 1%;

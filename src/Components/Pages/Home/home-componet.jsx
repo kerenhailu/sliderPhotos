@@ -16,19 +16,15 @@ export default function Home() {
 
   function InputUser(event) {
     setUserNameReceived(event.target.value);
-    console.log(event.target.value);
   }
 
   function CheckUser() {
     allImg.filter((user) => {
       if (userNameReceived == user.user) {
         setShowUser(user);
-        console.log(showUser);
-        console.log(userNameReceived, ":", user.user);
-        setMessage("")
+        setMessage("");
       } else {
-        setMessage("not found")
-        console.log(userNameReceived, ":", user.user);
+        setMessage("not found");
       }
     });
   }
@@ -36,30 +32,40 @@ export default function Home() {
   return (
     <div className="Home">
       <div className="Categorys">
-      <h1>Choose a Category</h1>
-        <Link to="/food"><button>Food</button></Link>
+        <h1>Choose a Category</h1>
+        <Link to="/food">
+          <button>Food</button>
+        </Link>
         <br />
-          <Link to="/sport"><button>Sport</button></Link>
+        <Link to="/sport">
+          <button>Sport</button>
+        </Link>
         <br />
-        <Link to="/music"><button>Music</button></Link>
+        <Link to="/music">
+          <button>Music</button>
+        </Link>
         <br />
       </div>
       <div className="divSearch">
         <h1>Enter a User Name</h1>
-        <input type="text" onChange={InputUser} placeholder="User Name .." />
+        <input
+          type="text"
+          onChange={InputUser}
+          placeholder="Full User Name .."
+        />
         <button onClick={CheckUser} className="buttonInputSearch">
-        Search
+          Search
         </button>
-      {showUser.largeImageURL === undefined ? (
-        <section className="message">{message}</section>
-      ) : (
-        <section className="cardUser">
-          <h2>{showUser.user}</h2>
-          <img src={showUser.largeImageURL} alt="userImg" />
-          <br/>
-        </section>
-      )}</div>
+        {showUser.largeImageURL === undefined ? (
+          <section className="message">{message}</section>
+        ) : (
+          <section className="cardUser">
+            <h2>{showUser.user}</h2>
+            <img src={showUser.largeImageURL} alt="userImg" />
+            <br />
+          </section>
+        )}
+      </div>
     </div>
   );
 }
-

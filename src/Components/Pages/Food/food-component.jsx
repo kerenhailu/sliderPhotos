@@ -13,17 +13,13 @@ export default function Food() {
       setFoodImg(res.hits);
     });
   }, []);
-  console.log(foodImg);
   useEffect(() => {
     const interval = setInterval(() => {
       if (indexImg === foodImg.length - 1) {
         indexImg = 0;
-        console.log("image :", image);
       } else {
         setImage(foodImg[indexImg].largeImageURL);
         indexImg++;
-        console.log(indexImg);
-        console.log("image :", image);
       }
     }, 3000);
     return () => {
